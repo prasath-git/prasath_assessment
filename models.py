@@ -27,8 +27,8 @@ class LeaveRequest(db.Model):
     def generate_id():
         last_request = LeaveRequest.query.order_by(LeaveRequest.id.desc()).first()
         if last_request and last_request.id.startswith("LR"):
-            last_num = int(last_request.id[2:])  # Extract the number part
-            new_id = f"LR{last_num + 1:03d}"  # Increment and format as "LRxxx"
+            last_num = int(last_request.id[2:]) 
+            new_id = f"LR{last_num + 1:03d}" 
         else:
             new_id = "LR001"
         return new_id
